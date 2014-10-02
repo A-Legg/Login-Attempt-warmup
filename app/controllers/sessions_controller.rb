@@ -24,4 +24,11 @@ class SessionsController < ApplicationController
       render :new
     end
   end
+
+
+  private
+
+  def login_fail
+    @user && @user.password != params[:user][:password]
+  end
 end
